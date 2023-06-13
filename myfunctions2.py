@@ -12,8 +12,6 @@ def square(s):
         shelly.left(90)
 
 
-square(100)  # calling the function
-shelly.forward(100)  # move forward
-square(200)  # make another square by calling the function
-shelly.forward(100)  # move forward
-square(300)  # make another square by calling the function again
+for i in range(25):
+    square(i)
+    shelly.forward(i)
