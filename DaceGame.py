@@ -23,6 +23,21 @@ print('Computers turn')
 computer_rolls = roll_dice(number_dice)
 print(f'Computer first roll: {computer_rolls}')
 
+# step3 find winner function
+def find_winner(cdice_list, udice_list)
+    computer_total = sum(cdice_list)
+    user_total = sum(udice_list)
+    print(f'Computer total: {computer_total}')
+    print(f'User total: {user_total}')
+    if user_total > computer_total:
+        print('User wins!')
+    elif user_total < computer_total:
+        print('Computer wins!')
+    else:
+        print('It is a tie!')
+
+
+
 
 print(f'Computer is thinking...')
 print(f'')
