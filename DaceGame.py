@@ -53,6 +53,24 @@ def roll_again(choices, dice_list):
             dice_list[i] = random.randint(1, 6)
     time.sleep(3)
 
+# step5 - roll again based on user choices
+roll_again(user_choices, user_rolls)
+print(f'Player new roll: {user_rolls}')
+
+# computer's turn
+print('Computer is thinking...')
+time.sleep(3)
+def computer_strategy1(n):
+    # create computer choices: roll everything again
+    choices = '' # start with an empty list of choices
+    for i in range(n):
+        choices = choices + 'r'
+    return choices
+
+
+
+
+
 # final line in code - deciding who wins
 find_winner(computer_rolls, user_rolls)
 
