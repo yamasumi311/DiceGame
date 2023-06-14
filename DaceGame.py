@@ -1,7 +1,8 @@
 import random
 
-n = int(input('Enter number of dice: '))
-input('Ready to start? Hit any key to continue.')
+# Step1 in main program area - start game
+number_dice = int(input('Enter number of dice: '))
+ready = input('Ready to start? Hit any key to continue.')
 
 dice_numbers = []
 
