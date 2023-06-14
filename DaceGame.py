@@ -14,9 +14,19 @@ def roll_dice(n):
     return dice
 
 
+# step2 in main program area - roll dice
+# user turn to roll
+user_rolls = roll_dice(number_dice)
+print(f'User first roll: {user_rolls}')
+# computer's turn to roll
+print('Computers turn')
+computer_rolls = roll_dice(number_dice)
+print(f'Computer first roll: {computer_rolls}')
 
-userFirstRoll = roll_dice(n)
-print(f'User first roll: {userFirstRoll}')
+
+print(f'Computer is thinking...')
+print(f'')
+
 
 choice = input('Enter - to hold or r to roll again: ')
 
@@ -26,10 +36,4 @@ if not (choice == 'r'):
     userNewRoll = roll_dice(n)
     print(f'User new roll: {userNewRoll}')
 
-print('Computers turn')
-dice_numbers = []
-computerFirstRoll = roll_dice(n)
-print(f'Computer first roll: {computerFirstRoll}')
-print(f'Computer is thinking...')
-print(f'')
 
