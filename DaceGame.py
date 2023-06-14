@@ -36,6 +36,14 @@ def find_winner(cdice_list, udice_list)
     else:
         print('It is a tie!')
 
+# step4 - get user choices
+user_choices = input('Enter - to hold or r to roll again: ')
+# check length of user input
+while len(user_choices) != number_dice:
+    print(f'You must enter {number_dice} choices.')
+    user_choices = input('Enter - to hold or r to roll again: ')
+
+
 # final line in code - deciding who wins
 find_winner(computer_rolls, user_rolls)
 
