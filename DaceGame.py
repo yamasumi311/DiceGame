@@ -36,6 +36,8 @@ def find_winner(cdice_list, udice_list)
     else:
         print('It is a tie!')
 
+# final line in code - deciding who wins
+find_winner(computer_rolls, user_rolls)
 
 
 
