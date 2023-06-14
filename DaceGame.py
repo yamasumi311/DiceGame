@@ -67,6 +67,15 @@ def computer_strategy1(n):
         choices = choices + 'r'
     return choices
 
+def computer_strategy2(n):
+    # create computer choices: roll if < 5
+    for i in range(n):
+        if computer_rolls[i] < 5
+            choices = choices + 'r'
+        else:
+            choices = choices + '-'
+    return choices
+
 
 
 
