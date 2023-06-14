@@ -78,24 +78,7 @@ def computer_strategy2(n):
     return choices
 
 
-
-
-
 # final line in code - deciding who wins
 find_winner(computer_rolls, user_rolls)
-
-
-
-print(f'Computer is thinking...')
-print(f'')
-
-
-choice = input('Enter - to hold or r to roll again: ')
-
-if not (choice == 'r'):
-    dice_numbers = []
-    print('Rolling again...')
-    userNewRoll = roll_dice(n)
-    print(f'User new roll: {userNewRoll}')
 
 
