@@ -1,4 +1,5 @@
 import random
+import time
 
 # Step1 in main program area - start game
 number_dice = int(input('Enter number of dice: '))
@@ -43,6 +44,14 @@ while len(user_choices) != number_dice:
     print(f'You must enter {number_dice} choices.')
     user_choices = input('Enter - to hold or r to roll again: ')
 
+# roll again function
+def roll_again(choices, dice_list):
+    print('Rolling again...')
+    time.sleep(3)
+    for i in range(len(choices)):
+        if choices[i] == 'r':
+            dice_list[i] = random.randint(1, 6)
+    time.sleep(3)
 
 # final line in code - deciding who wins
 find_winner(computer_rolls, user_rolls)
