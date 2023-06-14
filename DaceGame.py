@@ -4,14 +4,15 @@ import random
 number_dice = int(input('Enter number of dice: '))
 ready = input('Ready to start? Hit any key to continue.')
 
-dice_numbers = []
 
-
+# rolling dice function
 def roll_dice(n):
+    dice = []  # start with empty list of dice
+    # add random numbers between 1 to 6 to the list
     for i in range(n):
-        i = random.randint(1, 6)
-        dice_numbers.append(i)
-    return dice_numbers
+        dice.append(random.randint(1, 6))
+    return dice
+
 
 
 userFirstRoll = roll_dice(n)
