@@ -25,7 +25,7 @@ computer_rolls = roll_dice(number_dice)
 print(f'Computer first roll: {computer_rolls}')
 
 # step3 find winner function
-def find_winner(cdice_list, udice_list)
+def find_winner(cdice_list, udice_list):
     computer_total = sum(cdice_list)
     user_total = sum(udice_list)
     print(f'Computer total: {computer_total}')
@@ -69,8 +69,9 @@ def computer_strategy1(n):
 
 def computer_strategy2(n):
     # create computer choices: roll if < 5
+    choices = ''  # start with an empty list of choices
     for i in range(n):
-        if computer_rolls[i] < 5
+        if computer_rolls[i] < 5:
             choices = choices + 'r'
         else:
             choices = choices + '-'
