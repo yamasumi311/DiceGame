@@ -66,13 +66,6 @@ def take_turn():
     print(f'Player new roll: {user_rolls}')
 
 
-take_turn()
-
-# computer's turn
-print('Computer is thinking...')
-time.sleep(3)
-
-
 def computer_strategy1(n):
     # create computer choices: roll everything again
     choices = '' # start with an empty list of choices
@@ -94,15 +87,14 @@ def computer_strategy2(n):
 
 # step6
 def computers_turn():
+    print('Computer is thinking...')
+    time.sleep(3)
     # decide on what choice - using one of the strategy functions
     computer_choices = computer_strategy2(number_dice)
     print(f'Computer Choice: {computer_choices}')
     # Computer rolls again using the choices it made
     roll_again(computer_choices, computer_rolls)
     print(f'Computer new roll: {computer_rolls}')
-
-
-computers_turn()
 
 
 # allow roll again
@@ -116,23 +108,20 @@ def another_chance():
         return answer
 
 
-# user to decide if they want another rolls
-anotherChance = another_chance()
+def one_round():
+    # user to decide if they want another rolls
+    anotherChance = another_chance()
+    while anotherChance == 'y':
+        take_turn()
+        computers_turn()
+        anotherChance = another_chance()
+    else:
+        computers_turn()
+        # final line in code - deciding who wins
+        find_winner(computer_rolls, user_rolls)
+
+one_round()
 
 
-def roll_or_not(anotherChance):
-    if anotherChance == 'y':
-        return take_turn()
-
-
-# another roll depending on user's choice
-roll_or_not(anotherChance)
-
-# computer's turn
-computers_turn()
-
-
-# final line in code - deciding who wins
-find_winner(computer_rolls, user_rolls)
 
 
