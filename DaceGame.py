@@ -24,6 +24,7 @@ print('Computers turn')
 computer_rolls = roll_dice(number_dice)
 print(f'Computer first roll: {computer_rolls}')
 
+
 # step3 find winner function
 def find_winner(cdice_list, udice_list):
     computer_total = sum(cdice_list)
@@ -37,12 +38,16 @@ def find_winner(cdice_list, udice_list):
     else:
         print('It is a tie!')
 
-# step4 - get user choices
-user_choices = input('Enter - to hold or r to roll again: ')
-# check length of user input
-while len(user_choices) != number_dice:
-    print(f'You must enter {number_dice} choices.')
+
+def get_user_choices():
+    # get user choices
     user_choices = input('Enter - to hold or r to roll again: ')
+    # check length of user input
+    while len(user_choices) != number_dice:
+        print(f'You must enter {number_dice} choices.')
+        user_choices = input('Enter - to hold or r to roll again: ')
+    return user_choices
+
 
 # roll again function
 def roll_again(choices, dice_list):
@@ -53,9 +58,15 @@ def roll_again(choices, dice_list):
     time.sleep(3)
 
 
-# step5 - roll again based on user choices
-roll_again(user_choices, user_rolls)
-print(f'Player new roll: {user_rolls}')
+# take a turn: choose - roll - result
+def take_turn():
+    userChoices = get_user_choices()
+    # step5 - roll again based on user choices
+    roll_again(userChoices, user_rolls)
+    print(f'Player new roll: {user_rolls}')
+
+
+take_turn()
 
 # computer's turn
 print('Computer is thinking...')
@@ -80,13 +91,46 @@ def computer_strategy2(n):
             choices = choices + '-'
     return choices
 
+
 # step6
-# decide on what choice - using one of the strategy functions
-computer_choices = computer_strategy2(number_dice)
-print(f'Computer Choice: {computer_choices}')
-# Computer rolls again using the choices it made
-roll_again(computer_choices, computer_rolls)
-print(f'Computer new roll: {computer_rolls}')
+def computers_turn():
+    # decide on what choice - using one of the strategy functions
+    computer_choices = computer_strategy2(number_dice)
+    print(f'Computer Choice: {computer_choices}')
+    # Computer rolls again using the choices it made
+    roll_again(computer_choices, computer_rolls)
+    print(f'Computer new roll: {computer_rolls}')
+
+
+computers_turn()
+
+
+# allow roll again
+def another_chance():
+    answer = input('Do you want to roll again?(y or n): ')
+    while answer == 'y' or answer == 'n':
+        return answer
+    else:
+        print('invalid input. Try again')
+        answer = input('Do you want to roll again?(y or n): ')
+        return answer
+
+
+# user to decide if they want another rolls
+anotherChance = another_chance()
+
+
+def roll_or_not(anotherChance):
+    if anotherChance == 'y':
+        return take_turn()
+
+
+# another roll depending on user's choice
+roll_or_not(anotherChance)
+
+# computer's turn
+computers_turn()
+
 
 # final line in code - deciding who wins
 find_winner(computer_rolls, user_rolls)
