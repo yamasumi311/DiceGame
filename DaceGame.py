@@ -55,7 +55,7 @@ def roll_again(choices, dice_list):
     for i in range(len(choices)):
         if choices[i] == 'r':
             dice_list[i] = random.randint(1, 6)
-    time.sleep(3)
+    time.sleep(1)
 
 
 # take a turn: choose - roll - result
@@ -88,7 +88,7 @@ def computer_strategy2(n):
 # step6
 def computers_turn():
     print('Computer is thinking...')
-    time.sleep(3)
+    time.sleep(1)
     # decide on what choice - using one of the strategy functions
     computer_choices = computer_strategy2(number_dice)
     print(f'Computer Choice: {computer_choices}')
@@ -111,14 +111,21 @@ def another_chance():
 def one_round():
     # user to decide if they want another rolls
     anotherChance = another_chance()
+    round = 1
     while anotherChance == 'y':
         take_turn()
         computers_turn()
-        anotherChance = another_chance()
-    else:
-        computers_turn()
-        # final line in code - deciding who wins
-        find_winner(computer_rolls, user_rolls)
+        round += 1
+        if round < 3:
+            anotherChance = another_chance()
+            print(f'Round {round}')
+        elif round == 3:
+            anotherChance = another_chance()
+            print('Last round!')
+        else:
+            # final line in code - deciding who wins
+            find_winner(computer_rolls, user_rolls)
+
 
 one_round()
 
