@@ -2,7 +2,15 @@ import random
 import time
 
 # Step1 in main program area - start game
-number_dice = int(input('Enter number of dice: '))
+number_dice = input('Enter number of dice: ')
+# check if input is integer
+if number_dice.isdigit():
+    number_dice = int(number_dice)
+else:
+    while not number_dice.isdigit():
+        print('Invalid input.')
+        number_dice = input('How many dice do you want to roll? Enter a number: ')
+
 ready = input('Ready to start? Hit any key to continue.')
 
 
