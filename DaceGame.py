@@ -145,6 +145,8 @@ def one_round():
         else:
             # final line in code - deciding who wins
             find_winner(computer_rolls, user_rolls)
+    if anotherChance == 'n':
+        find_winner(computer_rolls, user_rolls)
 
 
 one_round()
