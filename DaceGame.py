@@ -2,6 +2,8 @@ import random
 import time
 
 # Step1 in main program area - start game
+from functions import check_inputs
+
 number_dice = input('Enter number of dice: ')
 # check if input is integer
 while not number_dice.isdigit():
@@ -56,14 +58,14 @@ def get_user_choices():
     return user_choices
 
 
-def check_input(user_choices):
+def allow_enter_again(user_choices):
     # check if inputs are valid
-    for i in user_choices:
-        # De Morgan's laws
-        while (i != 'r') and (i != '-'):
-            print('Invalid input. Enter "-" or "r".')
-            user_choices = input('Enter - to hold or r to roll again: ')
-    return user_choices
+    if not check_inputs(user_choices):
+        print('Invalid input. Enter "-" or "r".')
+        user_choices = input('Enter - to hold or r to roll again: ')
+        return user_choices
+    else:
+        return user_choices
 
 
 # roll again function
@@ -78,7 +80,7 @@ def roll_again(choices, dice_list):
 # take a turn: choose - roll - result
 def take_turn():
     userChoices = get_user_choices()
-    userChoices = check_input(userChoices)
+    userChoices = allow_enter_again(userChoices)
     # step5 - roll again based on user choices
     roll_again(userChoices, user_rolls)
     print(f'Player new roll: {user_rolls}')
