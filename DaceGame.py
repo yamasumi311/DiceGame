@@ -58,16 +58,6 @@ def get_user_choices():
     return user_choices
 
 
-def allow_enter_again(user_choices):
-    # check if inputs are valid
-    if not check_inputs(user_choices):
-        print('Invalid input. Enter "-" or "r".')
-        user_choices = input('Enter - to hold or r to roll again: ')
-        return user_choices
-    else:
-        return user_choices
-
-
 # roll again function
 def roll_again(choices, dice_list):
     print('Rolling again...')
@@ -80,7 +70,6 @@ def roll_again(choices, dice_list):
 # take a turn: choose - roll - result
 def take_turn():
     userChoices = get_user_choices()
-    userChoices = allow_enter_again(userChoices)
     # step5 - roll again based on user choices
     roll_again(userChoices, user_rolls)
     print(f'Player new roll: {user_rolls}')
@@ -145,6 +134,7 @@ def one_round():
         else:
             # final line in code - deciding who wins
             find_winner(computer_rolls, user_rolls)
+            break
     if anotherChance == 'n':
         find_winner(computer_rolls, user_rolls)
 

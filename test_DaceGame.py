@@ -8,7 +8,7 @@ class Test_dice_gama(TestCase):
         self.assertFalse(check_inputs('r=-'))
 
     def test_first_character_wrong(self):
-        self.assertFalse(check_inputs('=r=-'))
+        self.assertFalse(check_inputs('=r='))
 
     def test_short_inputs(self):
         self.assertTrue(check_inputs('r-'))
